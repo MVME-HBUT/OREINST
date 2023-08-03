@@ -1,0 +1,57 @@
+
+MODEL:
+  META_ARCHITECTURE: "CondInst"
+  MASK_ON: True
+  BACKBONE:
+    NAME: "build_fcos_mobilenetV3small_fpn_backbone"
+  RESNETS:
+    OUT_FEATURES: ["res3", "res4", "res5"]
+  FPN:
+    IN_FEATURES: ["res3", "res4", "res5"]
+    OUT_CHANNELS: 96
+  PROPOSAL_GENERATOR:
+    NAME: "FCOS"
+  FCOS:
+    THRESH_WITH_CTR: True
+    USE_SCALE: True
+    TOP_LEVELS: 0
+    NUM_CLS_CONVS: 0
+    NUM_BOX_CONVS: 0
+    NUM_SHARE_CONVS: 2
+    IN_FEATURES: ["p3", "p4", "p5"]
+    FPN_STRIDES: [8, 16, 32] 
+    BOX_QUALITY: "iou" 
+    # BOX_QUALITY: "ctrness"  
+    # BOX_QUALITY: "gfl"
+    beta: 2
+    dfl_loss_weight: 1.0
+    qfl_loss_weight: 1.0 
+  CONDINST:
+    TOPK_PROPOSALS_PER_IM: 64
+    MASK_BRANCH:
+      OUT_CHANNELS: 16
+      NUM_CONVS: 0
+  BOXINST:
+    ENABLED: True
+    BOTTOM_PIXELS_REMOVED: 10
+    PAIRWISE:
+      SIZE: 3
+      DILATION: 2
+      PRECOLOR_THRESH: 0.2
+      COLOR_THRESH: 0.2
+DATASETS:
+  TRAIN: ("coco_stone_train",)
+  TEST: ("coco_2017_val",)
+SOLVER:
+  IMS_PER_BATCH: 12
+  BASE_LR: 0.01
+  STEPS: (11900, 14500) #(8000, 10000) #(60000, 80000)
+  MAX_ITER: 18000 #18000 #12000 #90000
+  CHECKPOINT_PERIOD: 1000
+INPUT:
+  MAX_SIZE_TRAIN: 640
+  MIN_SIZE_TRAIN: (300,330,360,390,420,450,480)
+  MAX_SIZE_TEST: 640
+  MIN_SIZE_TEST: 480
+TEST:
+  EVAL_PERIOD: 1000
