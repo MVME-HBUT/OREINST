@@ -39,3 +39,14 @@ Note that:
 - If you want to measure the inference time, please change `--num-gpus` to 1.
 - We set `OMP_NUM_THREADS=0` by default, which achieves the best speed on our machines, please change it as needed.
 
+### Citing
+If you find this repository useful in your research, please consider citing:
+```
+@ARTICLE{OREINST2023,  
+  author={Guodong Sun and Delong Huang and Yuting Peng and Le Cheng and Bo Wu and Yang Zhang},  
+  booktitle={Engineering Applications of Artificial Intelligence},   
+  title={Efficient Segmentation with Texture in Ore Images Based on Box-supervised Approach},   
+  year={2023},
+  pages={1-14}
+  }
+```
