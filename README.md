@@ -1,4 +1,4 @@
-Offical codes for Efficient Segmentation with Texture in Ore Images Based on Box-supervised Approach. You can see details in [[Paper]](https://arxiv.org/abs/2311.05929).
+Official codes for Efficient Segmentation with Texture in Ore Images Based on Box-supervised Approach. You can see details in [[Paper]](https://arxiv.org/abs/2311.05929).
 
 ## Installation
 
