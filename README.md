@@ -47,7 +47,7 @@ If you find this repository useful in your research, please consider citing:
   author={Guodong Sun and Delong Huang and Yuting Peng and Le Cheng and Bo Wu and Yang Zhang},  
   booktitle={Engineering Applications of Artificial Intelligence},   
   title={Efficient Segmentation with Texture in Ore Images Based on Box-supervised Approach},   
-  year={2023},
+  year={2024},
   pages={1-14}
   }
 ```
